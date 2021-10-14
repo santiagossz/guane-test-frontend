@@ -1,12 +1,8 @@
 import { createStore } from 'vuex'
+import tenCharacters from './rick&morty/tenCharacters'
 
 export default createStore({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
-})
+  modules:{
+    tenCharacters:tenCharacters,
+    character:tenCharacters.module.character
+}})

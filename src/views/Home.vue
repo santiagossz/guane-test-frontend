@@ -1,18 +1,27 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+
+<transition name="tr" mode="out-in">
+  <div v-if="show" class="intro" @click="show=!show"/>
+  <CharactersGrid v-else-if="!show" class="characters"/>
+</transition>
+
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import CharactersGrid from '../components/CharactersGrid.vue'
+import '../assets/sass/home/home.scss'
 
-@Options({
+export default({
   components: {
-    HelloWorld,
+  
+    CharactersGrid 
   },
+
+  data(){
+    return{show:true}
+
+  }
+
+
 })
-export default class Home extends Vue {}
 </script>
