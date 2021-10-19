@@ -1,12 +1,26 @@
 @import './transition.scss';
 
 
-body{
-    background: #333;
-}
 .intro{
-    background: url('../../imgs/background.png') center;
+    background: url('../../imgs/b1.jpg') center;
     background-size: cover;
+
 };
 
+.grid{
+    display: flex;
+    flex-direction: column;
+    background: url('../../imgs/h2.jpg') center;
+    background-size: cover;
 
+}
+
+.findToggle{
+    position:absolute;
+    top: 40%;
+    right: 10%;
+    font-family: 'Permanent Marker', cursive;
+    color: wheat;
+    cursor: pointer;
+    letter-spacing: 0.25rem;
+}

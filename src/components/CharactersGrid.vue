@@ -1,34 +1,49 @@
 <template>
+  <Fragment>
+    <div class="characters">
+      <div
+        class="front-card"
+        v-for="c in tenCharacters.tenCharacters"
+        :key="c.id"
+      >
+        <FrontCard :character="c" />
+      </div>
+    </div>
 
-<div class="grid">
+    <Pag />
 
-    <button v-on:click="handleClick" class="rm">4</button>
-    <button @click="handleClick" class="rm">3</button>
-
-
-
-      {{tenCharacters.tenCharacters}}
-      <!-- {{character}} -->
-</div>
-
+  </Fragment>
 </template>
 
-<script >
+<script>
 
-import { mapActions,mapState } from 'vuex';
-import '../assets/sass/grid.scss'
+import { mapState } from "vuex";
+import Pag from "./Pagination/Pagination.vue";
+import FrontCard from "./CharacterFrontCard.vue";
+import "../assets/sass/characters/grid.scss";
 
 export default {
-    name:'CharactersGrid',
-    methods:{handleClick (e){this.$store.dispatch('getTenCharacters',e.target.innerHTML)}},
+  name: "CharactersGrid",
+  components: {
+    FrontCard,
+    Pag,
+  },
 
-    computed: {
-        ...mapState(['tenCharacters']),
-        
+  methods: {
+    handleClick(e) {
+      this.$store.dispatch("getTenCharacters", e.target.innerHTML);
     },
-    created(){
-        this.$store.dispatch('getTenCharacters','1')
-    }
-}
-</script>
+  },
+  data() {
+    return {
+    };
+  },
 
+  computed: {
+    ...mapState(["tenCharacters", "info"]),
+  },
+  created() {
+    this.$store.dispatch("getTenCharacters", "1");
+  },
+};
+</script>

@@ -1,17 +1,7 @@
-.tr-enter-active {
-    transition: all 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53); //ease-in-quad
-    transform-origin: 50% 50%;
-  }
-  
-  .tr-leave-active {
-    transform-origin: 50% 50%;
-    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94); //ease-out-quad
-  }
-  
-  .tr-enter-from,
-  .tr-leave-to {
-    transform-origin: 50% 50%;
-    transform: scaleY(0) translateZ(0);
-    opacity: 0;
-  }
+.tr-enter-active,.tr-leave-active  {
+  transition: opacity .35s;
+}
 
+.tr-enter-from, .tr-leave-to{
+  opacity: 0;
+}

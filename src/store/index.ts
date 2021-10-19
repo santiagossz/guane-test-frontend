@@ -4,5 +4,6 @@ import tenCharacters from './rick&morty/tenCharacters'
 export default createStore({
   modules:{
     tenCharacters:tenCharacters,
-    character:tenCharacters.module.character
+    character:tenCharacters.module.character,
+   
 }})

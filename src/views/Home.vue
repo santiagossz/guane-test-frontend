@@ -1,10 +1,13 @@
 <template>
 
 <transition name="tr" mode="out-in">
-  <div v-if="show" class="intro" @click="show=!show"/>
-  <CharactersGrid v-else-if="!show" class="characters"/>
-</transition>
+  <div v-if="show" class="intro">
+    <h3 class="findToggle" @click="show=!show">Find Us</h3>
+  </div>
 
+  <CharactersGrid v-else-if="!show" class="grid"/>
+</transition>
+ <h3 class="findToggle" @click="show=!show">Find Us</h3>
 </template>
 
 <script lang="ts">
