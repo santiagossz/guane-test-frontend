@@ -1,7 +1,7 @@
 <template>
   <div>
     <pagination
-      v-model="page"
+      v-model="$store.state.tenCharacters.page"
       :records="$store.state.tenCharacters.info.count"
       :per-page="10"
       :options="{
@@ -25,13 +25,13 @@ export default {
 
   data() {
     return {
-      page: 1,
       template: CustomTemplate,
     };
   },
   methods: {
     changePage(e) {
       this.$store.dispatch("getTenCharacters", e);
+      this.$store.state.tenCharacters.page=e;
     },
   },
 };

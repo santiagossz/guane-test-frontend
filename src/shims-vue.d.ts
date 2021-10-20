@@ -6,3 +6,4 @@ declare module '*.vue' {
 }
 declare module 'v-pagination-3'
 declare module 'bootstrap'
+

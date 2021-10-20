@@ -1,30 +1,27 @@
-@import './transition.scss';
+@import "./transition.scss";
 
-
-.intro{
-    background: url('../../imgs/b1.jpg') center;
-    background-size: cover;
-    height: 100vh;
-
-};
-
-.grid{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: url('../../imgs/h2.jpg') center;
-    background-size: cover;
-    min-height: 100vh;
-
+.intro {
+  background: url("../../imgs/b1.jpg") center;
+  background-size: cover;
+  min-height: 100vh;
 }
 
-.findToggle{
-    position:absolute;
-    top: 40%;
-    right: 10%;
-    font-family: 'Permanent Marker', cursive;
-    color: wheat;
-    cursor: pointer;
-    letter-spacing: 0.25rem;
+.grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url("../../imgs/h2.jpg") center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.findToggle {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+  font-family: "Permanent Marker", cursive;
+  color: wheat;
+  cursor: pointer;
+  letter-spacing: 0.25rem;
 }

@@ -4,6 +4,7 @@ import Character from "./Character";
 import { RM } from "../../types/rm";
 
 class State {
+  page:any=1;
   info: any = {};
   tenCharacters: RM[] = [];
 }
@@ -11,6 +12,7 @@ const state = new State();
 
 const mutations = <MutationTree<State>>{
   setInfo: (state, info) => (state.info = info),
+  setShow: (state, show) => (state.info = show),
 
   setTenCharacters: (state, tenCharacters) =>
     (state.tenCharacters = tenCharacters),

@@ -1,5 +1,5 @@
 <template>
-  <Fragment>
+  <div  class="grid">
     <div class="characters">
       <div
         v-for="c in tenCharacters.tenCharacters"
@@ -13,6 +13,9 @@
         }"
         @mouseenter="toggleCard(c)"
         @mouseleave="toggleCard(c)"
+        @click="$router.push({ name:'Info', params: { 'info':Object.values(c).map(i=>
+        typeof i=='object'?
+        [Object.values(i).map(j=>j)]:i)} })"
       >
         <transition name="flip">
           <div :key="c.front">
@@ -24,7 +27,7 @@
     </div>
 
     <Pag />
-  </Fragment>
+  </div>
 </template>
 
 <script>
@@ -57,7 +60,10 @@ export default {
     ...mapState(["tenCharacters", "info"]),
   },
   created() {
-    this.$store.dispatch("getTenCharacters", "1");
+    this.$store.dispatch("getTenCharacters", this.$store.state.tenCharacters.page);
   },
+    mounted: function() {
+        document.body.className = 'none';
+    }
 };
 </script>
