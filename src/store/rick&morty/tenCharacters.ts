@@ -28,8 +28,9 @@ const actions = <ActionTree<State, any>>{
         return error;
       });
     const data = await req.data;
-    console.log(data.results[0].id);
-    commit("setInfo", data);
+    const new_data={'results':data.results.map((i:any)=>Object.assign(i,{'front':true}))}
+    commit("setInfo", Object.assign(data.info,new_data));
+    console.log(state.info.count)
     page % 2 != 0
       ? commit("setTenCharacters", state.info.results.slice(0, 10))
       : commit("setTenCharacters", state.info.results.slice(10));

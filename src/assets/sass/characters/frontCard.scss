@@ -1,25 +1,44 @@
 .front-card{
+  height: 12rem;
+  width: 9rem;
+  flex: 1 1 15%;
+  background-size: cover;
+  margin: 0 1.75rem 0 1.75rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
 
-    height: 12rem;
-    flex:1 1 20%;
-    text-align: center;
+
+}
+.front-card:nth-child(-n + 5) {
+  margin-bottom: 3rem;
+}
+.front-card:last-child {
+  width: 15rem;
+}
+.front-name{
+    color: white;
+}
+
+.flip-enter-active {
+    transition: all 0.4s ease;
+  }
   
-    display:inline-block;
-
-}
-.front-card:nth-child(-n+5) {
-      margin-bottom: 3rem;
-}
-
-img{
-    height: 12rem;
-    width: 10rem;
-    border-radius: 0.75rem;
-}
-
-button{
-    background-color: white;
-}
-h3{
-    color: #000;
+  .flip-leave-active {
+    display: none;
+  }
+  
+  .flip-enter, .flip-leave {
+    transform: rotateY(180deg);
+    opacity: 0;
+  
+  }
+  .know-more{
+    font-family: 'Permanent Marker', cursive;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+.active{
+    filter: brightness(0.8);
 }
