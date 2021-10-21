@@ -1,8 +1,8 @@
 <template>
   <div>
     <pagination
-      v-model="$store.state.tenCharacters.page"
-      :records="$store.state.tenCharacters.info.count"
+      v-model="$store.state.page"
+      :records="$store.state.info.count"
       :per-page="10"
       :options="{
         template: template,
@@ -31,7 +31,7 @@ export default {
   methods: {
     changePage(e) {
       this.$store.dispatch("getTenCharacters", e);
-      this.$store.state.tenCharacters.page=e;
+      this.$store.state.page=e;
     },
   },
 };

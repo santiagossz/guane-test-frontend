@@ -1,6 +1,6 @@
 <template>
     <Fragment> 
-    <h4 class="front-name">{{character.status}}</h4>
+    <h4 class="front-name">{{character.id}}</h4>
     </Fragment>
 
     

@@ -1,8 +1,8 @@
 <template>
-  <div  class="grid">
+  <div class="grid">
     <div class="characters">
       <div
-        v-for="c in tenCharacters.tenCharacters"
+        v-for="c in tenCharacters"
         :key="c.id"
         class="front-card"
         :style="{
@@ -13,9 +13,8 @@
         }"
         @mouseenter="toggleCard(c)"
         @mouseleave="toggleCard(c)"
-        @click="$router.push({ name:'Info', params: { 'info':Object.values(c).map(i=>
-        typeof i=='object'?
-        [Object.values(i).map(j=>j)]:i)} })"
+        @click="$router.push({ path: ':/character', query: { id:c.id }})"
+        
       >
         <transition name="flip">
           <div :key="c.front">
@@ -44,26 +43,17 @@ export default {
   },
 
   methods: {
-    handleClick(e) {
-      console.log(e.target);
-    },
     toggleCard(c) {
       c.front = !c.front;
-    },
-  },
-  data() {
-    return {
-    };
-  },
-
+    }},
   computed: {
     ...mapState(["tenCharacters", "info"]),
   },
   created() {
-    this.$store.dispatch("getTenCharacters", this.$store.state.tenCharacters.page);
+    this.$store.dispatch(
+      "getTenCharacters",
+      this.$store.state.page
+    );
   },
-    mounted: function() {
-        document.body.className = 'none';
-    }
 };
 </script>
