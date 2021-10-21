@@ -1,7 +1,5 @@
-@import "./transition.scss";
-
 .intro {
-  background: url("../../imgs/b1.jpg") center;
+  background: url("../imgs/b1.jpg") center;
   background-size: cover;
   min-height: 100vh;
 }
@@ -11,7 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url("../../imgs/h2.jpg") center;
+  background: url("../imgs/h2.jpg") center;
   background-size: cover;
   min-height: 100vh;
 }
@@ -24,4 +22,14 @@
   color: wheat;
   cursor: pointer;
   letter-spacing: 0.25rem;
+}
+
+.tr-enter-active,
+.tr-leave-active {
+  transition: opacity 0.5s;
+}
+
+.tr-enter-from,
+.tr-leave-to {
+  opacity: 0;
 }

@@ -1,4 +1,4 @@
-.front-card{
+.front-card {
   height: 12rem;
   width: 9rem;
   flex: 1 1 15%;
@@ -6,8 +6,7 @@
   margin: 0 1.75rem 0 1.75rem;
   border-radius: 0.75rem;
   cursor: pointer;
-
-
+  position: relative;
 }
 .front-card:nth-child(-n + 5) {
   margin-bottom: 3rem;
@@ -15,30 +14,28 @@
 .front-card:last-child {
   width: 15rem;
 }
-.front-name{
-    color: white;
-}
+.front-name {
+  color: white;
+  text-align: center;
+  background-color: rgba($color: #1d313f, $alpha: 0.7);
+  font-family: 'ZCOOL KuaiLe', cursive;
+  font-size: 1.15rem;
+  // position: absolute;
+  // bottom: -0.5rem;
 
-.flip-enter-active {
-    transition: all 0.4s ease;
-  }
-  
-  .flip-leave-active {
-    display: none;
-  }
-  
-  .flip-enter, .flip-leave {
-    transform: rotateY(180deg);
-    opacity: 0;
-  
-  }
-  .know-more{
-    font-family: 'Permanent Marker', cursive;
-    color: white;
-    font-size: 2rem;
-    text-align: center;
-  }
-  
-.active{
-    filter: brightness(0.8);
+}
+.front-name button{
+  width: 0.75rem;
+  height: 0.75rem;
+  border: none;
+  border-radius: 50%;
+  margin-left: 1rem;
+}
+.know-more {
+  color: rgb(255, 152, 0);
+  text-align: center;
+  font-weight: bold;
+  background-color: rgba($color: #1d313f, $alpha: 0.7);
+  position: absolute;
+  bottom: -0.5rem;
 }

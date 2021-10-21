@@ -1,7 +1,18 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <p>{{tenCharacters.slice($route.query.id%10-1)}}</p>
+  <div class="character-info">
+    <div class="central-box">
+      <div class="left-side">
+        <h3>{{character.name}}</h3>
+        <img :src="character.image" alt="">
+      </div>
+      <h4 class="status" ><button :style="character.status=='Alive'?{ background:'green'}:character.status=='Dead'?
+    { background:'red'}:null"></button>{{character.status}}</h4>
+
+      <p>{{character}}</p>
+
+
+    </div>
+    
   </div>
 </template>
 
@@ -12,13 +23,14 @@ import { mapState } from "vuex";
 export default {
     name:'CharacterInfo',
     computed: {
-    ...mapState(["tenCharacters"]),
+    ...mapState(["character"]),
   },
+
   created() {
     this.$store.state.page=Math.ceil(this.$route.query.id/10)
     this.$store.dispatch(
-      "getTenCharacters",
-      this.$store.state.page
+      "getCharacters",{page:
+      this.$store.state.page,id:this.$route.query.id}
     );
   }
 }

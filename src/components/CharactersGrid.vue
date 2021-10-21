@@ -7,21 +7,23 @@
         class="front-card"
         :style="{
           backgroundImage:
-            ' linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)),url(' +
+            ' linear-gradient(rgba(50, 50, 50, 0.2), rgba(100, 100, 100, 0.2)),url(' +
             c.image +
             ')',
         }"
-        @mouseenter="toggleCard(c)"
-        @mouseleave="toggleCard(c)"
-        @click="$router.push({ path: ':/character', query: { id:c.id }})"
-        
-      >
-        <transition name="flip">
-          <div :key="c.front">
-            <FrontCard :character="c" v-if="c.front" />
+        @mouseover="c.front = false"
+        @mouseleave="c.front = true"
+        @click="$router.push({ path: ':/character', query: { id: c.id } })">
+
+            <p v-if="c.front" class="front-name">
+              {{ c.name }}
+              <button
+                :style="c.status == 'Alive'? { background: 'green' }
+                    : c.status == 'Dead'? { background: 'red' }
+                    : null"/>
+            </p>
             <h4 v-if="!c.front" class="know-more">Know me More!!</h4>
-          </div>
-        </transition>
+
       </div>
     </div>
 
@@ -32,28 +34,19 @@
 <script>
 import { mapState } from "vuex";
 import Pag from "./Pagination/Pagination.vue";
-import FrontCard from "./CharacterFrontCard.vue";
 import "../assets/sass/characters/grid.scss";
 
 export default {
   name: "CharactersGrid",
   components: {
     Pag,
-    FrontCard,
   },
 
-  methods: {
-    toggleCard(c) {
-      c.front = !c.front;
-    }},
   computed: {
     ...mapState(["tenCharacters", "info"]),
   },
   created() {
-    this.$store.dispatch(
-      "getTenCharacters",
-      this.$store.state.page
-    );
+    this.$store.dispatch("getCharacters", {page:this.$store.state.page,id:0});
   },
 };
 </script>

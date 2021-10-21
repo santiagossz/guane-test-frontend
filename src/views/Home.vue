@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import '../assets/sass/home/home.scss'
+import '../assets/sass/home.scss'
 
 export default({
   data(){

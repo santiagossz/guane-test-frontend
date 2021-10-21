@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     changePage(e) {
-      this.$store.dispatch("getTenCharacters", e);
+      this.$store.dispatch("getCharacters", {page:e,id:0});
       this.$store.state.page=e;
     },
   },

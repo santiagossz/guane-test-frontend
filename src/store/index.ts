@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GetterTree, MutationTree, ActionTree } from "vuex";
+import { MutationTree, ActionTree } from "vuex";
 import { RM } from "../types/rm";
 
 import { createStore } from 'vuex'
@@ -9,19 +9,22 @@ class State {
   page: any = 1;
   info: any = {};
   tenCharacters: RM[] = [];
+  character: any = {}
 }
 const state = new State();
 
 const mutations = <MutationTree<State>>{
   setInfo: (state, info) => (state.info = info),
-  setShow: (state, show) => (state.info = show),
 
   setTenCharacters: (state, tenCharacters) =>
     (state.tenCharacters = tenCharacters),
+    
+  setCharacter: (state, character) => (state.character = character),
+
 };
 
 const actions = <ActionTree<State, any>>{
-  async getTenCharacters({ commit }, page) {
+  async getCharacters({ commit }, { page, id }) {
     const req_page =
       page % 2 != 0 ? Math.ceil(page / 2) : Math.ceil((page - 1) / 2);
     const req = await axios
@@ -32,11 +35,13 @@ const actions = <ActionTree<State, any>>{
         return error;
       });
     const data = await req.data;
-    const new_data = { 'results': data.results.map((i: any) => Object.assign(i, { 'front': true })) }
-    commit("setInfo", Object.assign(data.info, new_data));
+    commit("setInfo",data.info);
+
+    const new_data = data.results.map((i: any) => Object.assign(i, { 'front': true }))
     page % 2 != 0
-      ? commit("setTenCharacters", state.info.results.slice(0, 10))
-      : commit("setTenCharacters", state.info.results.slice(10));
+      ? commit("setTenCharacters", new_data.slice(0, 10))
+      : commit("setTenCharacters", new_data.slice(10));
+    id ? commit("setCharacter", state.tenCharacters.slice(id % 10 - 1)[0]) : null
   },
 };
 export default createStore({
