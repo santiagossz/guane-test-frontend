@@ -1,7 +1,11 @@
-# guane-test-frontend
+## vue3 - typescript - vuex - sass
+
+Frontend Guane Enterprises Technical Test 
+
 
 ## Project setup
-```
+
+```bash
 npm install
 ```
 
