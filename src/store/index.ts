@@ -9,17 +9,18 @@ class State {
   page: any = 1;
   info: any = {};
   tenCharacters: RM[] = [];
-  character: any = {}
+  character: any = {};
+  species:any=''
 }
 const state = new State();
 
 const mutations = <MutationTree<State>>{
   setInfo: (state, info) => (state.info = info),
-
   setTenCharacters: (state, tenCharacters) =>
     (state.tenCharacters = tenCharacters),
-    
   setCharacter: (state, character) => (state.character = character),
+  setSpecies: (state, species) => (state.species = species),
+
 
 };
 
@@ -42,6 +43,13 @@ const actions = <ActionTree<State, any>>{
       ? commit("setTenCharacters", new_data.slice(0, 10))
       : commit("setTenCharacters", new_data.slice(10));
     id ? commit("setCharacter", state.tenCharacters.slice(id % 10 - 1)[0]) : null
+
+    
+    const verify=(specie:string)=>{return(state.character.species==specie)}
+    const specie=verify('Human')?'user':verify('Alien')?'dragon':verify('Humanoid')?'user-secret':
+    verify('Poopybutthole')?'poo':verify('Mythological Creature')?'horse-head':'question'
+    commit("setSpecies", specie)
+    
   },
 };
 export default createStore({
