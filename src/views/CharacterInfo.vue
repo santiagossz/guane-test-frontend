@@ -16,6 +16,7 @@
       <div class="left-side">
         <h3>{{ character.name }}</h3>
         <img :src="character.image" alt="" />
+        <p class="c-id">Character # {{character.id}}</p>
       </div>
       <div class="right-side">
         <img
@@ -36,8 +37,8 @@
         Gender
         <p>{{character.gender}}</p>
         <img src="https://img.icons8.com/office/36/000000/plus-1year.png"/>
-        Created Year
-        <p>{{character.created.split('-')[0]}}</p>
+        Created Date
+        <p>{{character.created.split('T')[0]}}</p>
 
       </div>
     </div>

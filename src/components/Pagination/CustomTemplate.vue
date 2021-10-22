@@ -22,7 +22,7 @@
           :class="props.pageClasses(page)"
           v-on="props.pageEvents(page)"
         >
-          <button type="button"  v-bind="props.aProps" :class="props.theme.link">
+          <button type="button" v-bind="props.aProps" :class="props.theme.link">
             {{ page }}
           </button>
         </li>
